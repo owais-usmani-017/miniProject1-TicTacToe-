@@ -1,37 +1,155 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&display=swap');
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Baloo 2', cursive;
 }
-body{
-    text-align: center;
-}
-.container{
-    height: 70vh;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5vmin;
 
+:root {
+    --bg: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4);
+    --card: #ffffff;
+    --box: #ff6b6b;
+    --box-hover: #ff8787;
+    --text: #333;
+    --btn: #4ecdc4;
+    --btn-hover: #2ec4b6;
 }
-.game{
-    height: 60vmin;
-    width: 60vmin;
+
+body.dark {
+    --bg: linear-gradient(135deg, #1e1e2f, #2a2a40);
+    --card: #2c2c44;
+    --box: #6c5ce7;
+    --box-hover: #8577ff;
+    --text: #ffffff;
+    --btn: #00b894;
+    --btn-hover: #00a383;
+}
+
+body {
+    height: 100vh;
+    background: var(--bg);
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 1.5vmin;
+    transition: 0.4s ease;
 }
-.box{
-    height: 18vmin;
-    width: 18vmin;
-    border-radius: 1rem;
-    border: 0;
-    font-size: 8vmin;
-    background-color: #6a5fdc;
-    color: bisque;
+
+main {
+    background: var(--card);
+    padding: 40px 50px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    transition: 0.4s ease;
 }
-.hide{
+
+h1 {
+    margin-bottom: 15px;
+    font-size: 28px;
+    color: var(--text);
+}
+
+.toggle {
+    margin-bottom: 20px;
+}
+
+.toggle input {
+    display: none;
+}
+
+.slider {
+    width: 55px;
+    height: 28px;
+    background: #ccc;
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background: white;
+    border-radius: 50%;
+    top: 3px;
+    left: 4px;
+    transition: 0.3s ease;
+}
+
+.toggle input:checked + .slider {
+    background: #444;
+}
+
+.toggle input:checked + .slider::before {
+    transform: translateX(25px);
+}
+
+.game {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 15px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.box {
+    height: 100px;
+    width: 100px;
+    border-radius: 15px;
+    border: none;
+    font-size: 40px;
+    font-weight: 700;
+    background: var(--box);
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.box:hover:not(:disabled) {
+    background: var(--box-hover);
+    transform: scale(1.08);
+}
+
+.resetbtn,
+#new-btn {
+    padding: 10px 22px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    background: var(--btn);
+    color: white;
+    transition: 0.2s ease;
+}
+
+.resetbtn:hover,
+#new-btn:hover {
+    background: var(--btn-hover);
+    transform: scale(1.05);
+}
+
+.msg-container {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.msg-container p {
+    font-size: 22px;
+    color: white;
+}
+
+.hide {
     display: none;
 }
