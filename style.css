@@ -29,4 +29,9 @@ body{
     border-radius: 1rem;
     border: 0;
     font-size: 8vmin;
+    background-color: #6a5fdc;
+    color: bisque;
+}
+.hide{
+    display: none;
 }
